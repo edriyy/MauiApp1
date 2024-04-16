@@ -3,7 +3,7 @@ namespace MauiApp1;
 public partial class HomePage : ContentPage
 {
     private bool _isButton2Clicked = false;
-    
+    private List<MenuItem> _cartItems = new List<MenuItem>();
     public HomePage()
 	{
 		InitializeComponent();
@@ -35,13 +35,16 @@ public partial class HomePage : ContentPage
 
     private void FoodButton_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new FoodMenuPage());
+        Navigation.PushAsync(new FoodMenuPage(_cartItems));
     }
 
     private void DrinksButton_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new DrinkMenuPage());
+        Navigation.PushAsync(new DrinkMenuPage(_cartItems));
     }
 
-    
+    private async void ViewCartButton_Clicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new CartPage(_cartItems));
+    }
 }

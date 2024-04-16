@@ -3,17 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiApp1.DrinkMenuPage">
     <StackLayout>
-        
-        <!-- Add any necessary UI elements here to display drink items -->
-        <ListView x:Name="DrinkListView">
+        <!-- Add your UI elements for displaying food menu items here -->
+        <ListView x:Name="DrinkListView" ItemsSource="{Binding FoodItems}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <!-- Define how each drink item should be displayed -->
-                    <TextCell Text="{Binding Name}" Detail="{Binding Price, StringFormat='Price: MYR {0:N2}'}"/>
+                    <ViewCell>
+                        <StackLayout>
+                            <Label Text="{Binding Name}" />
+                            <Label Text="{Binding Price, StringFormat='{0:C}'}" />
+                            <Button Text="Add to Cart" Clicked="AddToCartButton_Clicked" CommandParameter="{Binding .}" />
+                        </StackLayout>
+                    </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        
-        <Button Text="Back" Clicked="BackButton_Clicked"/>
+        <Button x:Name="Button3" Text="Cart" Clicked="ViewCartButton_Clicked"/>
     </StackLayout>
 </ContentPage>
