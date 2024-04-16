@@ -7,15 +7,18 @@ namespace MauiApp1
 {
     public partial class FoodMenuPage : ContentPage
     {
+
         private readonly string _dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "menu.db");
         private List<MenuItem> _cartItems = new List<MenuItem>(); // Declaring _cartItems here
 
         public FoodMenuPage(List<MenuItem> cartItems)
+
         {
             InitializeComponent();
             _cartItems = cartItems;
             FoodListView.ItemsSource = GetFoodItemsFromDatabase();
         }
+
 
         private List<MenuItem> GetFoodItemsFromDatabase()
         {
@@ -34,6 +37,7 @@ namespace MauiApp1
                 // Add your logic to add the selected item to the cart
                 // For demonstration, we'll just display an alert
                 DisplayAlert("Success", $"{menuItem.Name} added to cart.", "OK");
+
 
                 _cartItems.Add(menuItem); // Add the selected item to the cart
             }

@@ -11,7 +11,7 @@ namespace MauiApp1
         public int Id { get; set; }
         public string Name { get; set; }
         public decimal Price { get; set; }
-        public string ItemType { get; set; } // Add a property to specify the type of item (e.g., Food, Drink)
-                                             // Add more properties as needed
+        public string ItemType { get; set; }
+        
     }
 }

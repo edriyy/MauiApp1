@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiApp1.FoodMenuPage">
     <StackLayout>
+
         <!-- Add your UI elements for displaying food menu items here -->
         <ListView x:Name="FoodListView" ItemsSource="{Binding FoodItems}">
             <ListView.ItemTemplate>
@@ -14,6 +15,7 @@
                             <Button Text="Add to Cart" Clicked="AddToCartButton_Clicked" CommandParameter="{Binding .}" />
                         </StackLayout>
                     </ViewCell>
+
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
