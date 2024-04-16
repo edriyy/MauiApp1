@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.HomePage">
+    <StackLayout>
+        <Button x:Name="Button1" Text="Food" Clicked="FoodButton_Clicked"/>
+        <Button x:Name="Button2" Text="Drinks" Clicked="DrinksButton_Clicked"/>
+        <Button x:Name="Button3" Text="Button3" />
+        <Button x:Name="Button4" Text="Button4" />
+        <Button x:Name="Button5" Text="Item Management" Clicked="ItemManagementButton_Clicked"/>
+        <Button x:Name="Button6" Text="Button6" />
+        <Button x:Name="Button7" Text="Button7" />
+        <Button Text="Back" Clicked="BackButton_Clicked"/>
+    </StackLayout>
+</ContentPage>

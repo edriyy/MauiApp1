@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.ItemManagementPage">
+    <StackLayout>
+        <Button Text="Add Item" Clicked="AddItemButton_Clicked"/>
+        <Button Text="Edit Item" Clicked="EditItemButton_Clicked" />
+        <Button Text="Item Lists" Clicked="ItemListsButton_Clicked" />
+        <Button Text="Back" Clicked="BackButton_Clicked"/>
+    </StackLayout>
+</ContentPage>

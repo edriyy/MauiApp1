@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.DrinkMenuPage">
+    <StackLayout>
+        
+        <!-- Add any necessary UI elements here to display drink items -->
+        <ListView x:Name="DrinkListView">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <!-- Define how each drink item should be displayed -->
+                    <TextCell Text="{Binding Name}" Detail="{Binding Price, StringFormat='Price: MYR {0:N2}'}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        
+        <Button Text="Back" Clicked="BackButton_Clicked"/>
+    </StackLayout>
+</ContentPage>

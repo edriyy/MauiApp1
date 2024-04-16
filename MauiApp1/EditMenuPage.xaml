@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.EditMenuPage">
+    <StackLayout>
+        <StackLayout Margin="10">
+            <Entry x:Name="SearchEntry" Placeholder="Search item" />
+            <Button Text="Search" Clicked="SearchButton_Clicked" />
+        </StackLayout>
+
+        <StackLayout x:Name="EditItemLayout" IsVisible="False" Margin="10">
+            <Label Text="Item Details" FontSize="Large" HorizontalOptions="Center" Margin="0,0,0,10" />
+            <Label Text="Name:" />
+            <Label x:Name="ItemNameLabel" />
+            <Label Text="Price:" />
+            <Label x:Name="ItemPriceLabel" />
+            <Label Text="Type:" />
+            <Label x:Name="ItemTypeLabel" />
+
+            <Entry x:Name="NewNameEntry" Placeholder="New name" />
+            <Entry x:Name="NewPriceEntry" Placeholder="New price" />
+            <Button Text="Save Changes" Clicked="SaveChangesButton_Clicked" />
+            <Button Text="Cancel" Clicked="CancelButton_Clicked" />
+        </StackLayout>
+
+        <Button Text="Back" Clicked="BackButton_Clicked" HorizontalOptions="Center" />
+    </StackLayout>
+</ContentPage>
