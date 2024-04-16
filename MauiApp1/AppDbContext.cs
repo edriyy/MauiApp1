@@ -12,7 +12,7 @@ namespace MauiApp1
         private readonly string _dbPath;
 
         public DbSet<UserAccount> Users { get; set; }
-        public DbSet<MenuItem> MenuItems { get; set; } // Adding MenuItem DbSet
+        public DbSet<MenuItem> MenuItems { get; set; } 
         
 
 
