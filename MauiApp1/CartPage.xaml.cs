@@ -15,5 +15,9 @@ namespace MauiApp1
             _cartItems = cartItems;
             CartListView.ItemsSource = _cartItems;
         }
+        private void BackButton_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PopAsync();
+        }
     }
 }

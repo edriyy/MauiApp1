@@ -19,5 +19,6 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        <Button Text="Back" Clicked="BackButton_Clicked" />
     </StackLayout>
 </ContentPage>
