@@ -14,6 +14,19 @@ namespace MauiApp1
             InitializeComponent();
             _cartItems = cartItems;
             CartListView.ItemsSource = _cartItems;
+
+            CalculateTotalPrice(); // Calculate total price when page is initialized
+        }
+
+        private void CalculateTotalPrice()
+        {
+            decimal totalPrice = 0;
+            foreach (var item in _cartItems)
+            {
+                totalPrice += item.Price;
+            }
+
+            TotalPriceLabel.Text = $"Total Price: {totalPrice:C}"; // Display total price
         }
         private void BackButton_Clicked(object sender, EventArgs e)
         {

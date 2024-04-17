@@ -13,12 +13,14 @@
                     <ViewCell>
                         <StackLayout Orientation="Horizontal" Padding="10">
                             <Label Text="{Binding Name}" HorizontalOptions="StartAndExpand"/>
-                            <Label Text="{Binding Price, StringFormat='Price: {0:C}'}" HorizontalOptions="End"/>
+                            <Label Text="{Binding Price, StringFormat='Price: RM {0:F2}'}" HorizontalOptions="End"/>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button Text="Back" Clicked="BackButton_Clicked" />
+
+        <Label x:Name="TotalPriceLabel" Text="Total Price: " />
+
     </StackLayout>
 </ContentPage>
