@@ -47,5 +47,9 @@ namespace MauiApp1
         {
             await Navigation.PushAsync(new CartPage(_cartItems));
         }
+        private void BackButton_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PopAsync();
+        }
     }
 }

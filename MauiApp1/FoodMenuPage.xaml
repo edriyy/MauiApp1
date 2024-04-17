@@ -4,21 +4,21 @@
              x:Class="MauiApp1.FoodMenuPage">
     <StackLayout>
 
-        <!-- Add your UI elements for displaying food menu items here -->
         <ListView x:Name="FoodListView" ItemsSource="{Binding FoodItems}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout>
+                        <StackLayout Orientation="Horizontal">
                             <Label Text="{Binding Name}" />
-                            <Label Text="{Binding Price, StringFormat='{0:C}'}" />
+                            <Label Text="{Binding Price, StringFormat='RM {0:#,0.00}'}" />
                             <Button Text="Add to Cart" Clicked="AddToCartButton_Clicked" CommandParameter="{Binding .}" />
                         </StackLayout>
                     </ViewCell>
-
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+
         <Button x:Name="Button3" Text="Cart" Clicked="ViewCartButton_Clicked"/>
+        <Button Text="Back" Clicked="BackButton_Clicked" />
     </StackLayout>
 </ContentPage>

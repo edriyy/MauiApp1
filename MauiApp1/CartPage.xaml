@@ -19,6 +19,8 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+
         <Label x:Name="TotalPriceLabel" Text="Total Price: " />
+
     </StackLayout>
 </ContentPage>

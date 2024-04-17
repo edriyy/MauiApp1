@@ -28,5 +28,9 @@ namespace MauiApp1
 
             TotalPriceLabel.Text = $"Total Price: {totalPrice:C}"; // Display total price
         }
+        private void BackButton_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PopAsync();
+        }
     }
 }
