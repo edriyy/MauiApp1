@@ -12,8 +12,8 @@ namespace MauiApp1
         private readonly string _dbPath;
 
         public DbSet<UserAccount> Users { get; set; }
-        public DbSet<MenuItem> MenuItems { get; set; } 
-        
+        public DbSet<MenuItem> MenuItems { get; set; }
+        public DbSet<OrderCartItem> OrderCartItems { get; set; }
 
 
         public AppDbContext(string dbPath)

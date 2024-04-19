@@ -3,53 +3,71 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Maui.Controls;
 
-namespace MauiApp1
+namespace MauiApp1;
+
+public partial class FoodMenuPage : ContentPage
 {
-    public partial class FoodMenuPage : ContentPage
+    private readonly string _dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "menu.db");
+    //private readonly string _orderDbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "order_cart.db");
+    private readonly string _orderDbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "order_cart3.db");
+    public FoodMenuPage()
     {
+        InitializeComponent();
+        LoadFoodItems();
+    }
+    private void LoadFoodItems()
+    {
+        // Assuming you have a method to retrieve food items from your database
+        List<MenuItem> foodItems = GetFoodItemsFromDatabase();
+        FoodListView.ItemsSource = foodItems;
+    }
 
-        private readonly string _dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "menu.db");
-        private List<MenuItem> _cartItems = new List<MenuItem>(); // Declaring _cartItems here
-
-        public FoodMenuPage(List<MenuItem> cartItems)
-
+    private List<MenuItem> GetFoodItemsFromDatabase()
+    {
+        // Connect to your database and retrieve food items
+        using (var db = new AppDbContext(_dbPath))
         {
-            InitializeComponent();
-            _cartItems = cartItems;
-            FoodListView.ItemsSource = GetFoodItemsFromDatabase();
+            return db.MenuItems.Where(item => item.ItemType == "Food").ToList();
+        }
+    }
+
+    private void AddToCart_Clicked(object sender, EventArgs e)
+    {
+        var menuItem = (MenuItem)((Button)sender).CommandParameter;
+
+        // Get the table number from the entry field
+        if (!int.TryParse(TableNumberEntry.Text, out int tableNumber))
+        {
+            DisplayAlert("Error", "Please enter a valid table number.", "OK");
+            return;
         }
 
-
-        private List<MenuItem> GetFoodItemsFromDatabase()
+        using (var db = new AppDbContext(_orderDbPath))
         {
-            using (var db = new AppDbContext(_dbPath))
+            var existingCartItem = db.OrderCartItems.FirstOrDefault(item => item.Name == menuItem.Name && item.TableNumber == tableNumber);
+
+            if (existingCartItem != null)
             {
-                // Retrieve food items from the database
-                return db.MenuItems.Where(item => item.ItemType == "Food").ToList();
+                existingCartItem.Quantity++; // Increment quantity if item already exists in the cart
             }
-        }
-
-        private void AddToCartButton_Clicked(object sender, EventArgs e)
-        {
-            var menuItem = (sender as Button)?.BindingContext as MenuItem;
-            if (menuItem != null)
+            else
             {
-                // Add your logic to add the selected item to the cart
-                // For demonstration, we'll just display an alert
-                DisplayAlert("Success", $"{menuItem.Name} added to cart.", "OK");
-
-
-                _cartItems.Add(menuItem); // Add the selected item to the cart
+                db.OrderCartItems.Add(new OrderCartItem { Name = menuItem.Name, Price = menuItem.Price, ItemType = menuItem.ItemType, Quantity = 1, TableNumber = tableNumber });
             }
+
+            db.SaveChanges();
         }
 
-        private async void ViewCartButton_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new CartPage(_cartItems));
-        }
-        private void BackButton_Clicked(object sender, EventArgs e)
-        {
-            Navigation.PopAsync();
-        }
+        DisplayAlert("Success", $"{menuItem.Name} added to cart for table {tableNumber}!", "OK");
+    }
+
+
+
+
+
+
+    private void BackButton_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PopAsync();
     }
 }

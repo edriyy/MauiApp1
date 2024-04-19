@@ -6,21 +6,28 @@
              mc:Ignorable="d"
              x:Class="MauiApp1.CartPage">
     <StackLayout>
-        <Label Text="Items in Cart" FontSize="Large" HorizontalOptions="CenterAndExpand" Margin="0,20,0,10"/>
-        <ListView x:Name="CartListView">
+        <Label Text="Enter Table Number:"/>
+        <Entry x:Name="TableNumberEntry" Placeholder="Enter table number" Keyboard="Numeric"/>
+        <Button Text="Load Order" Clicked="LoadOrder_Clicked"/>
+
+        <ListView x:Name="OrderCartListView">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout Orientation="Horizontal" Padding="10">
-                            <Label Text="{Binding Name}" HorizontalOptions="StartAndExpand"/>
-                            <Label Text="{Binding Price, StringFormat='Price: RM {0:F2}'}" HorizontalOptions="End"/>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{Binding Name}" FontAttributes="Bold" VerticalOptions="Center"/>
+                            <Label Text="{Binding Price, StringFormat='Price: {0:C}'}" VerticalOptions="Center"/>
+                            <Button Text="-" Clicked="DecreaseQuantity_Clicked"/>
+                            <Label Text="{Binding Quantity}" VerticalOptions="Center"/>
+                            <Button Text="+" Clicked="IncreaseQuantity_Clicked"/>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
 
-        <Label x:Name="TotalPriceLabel" Text="Total Price: " />
 
+        <Label x:Name="TotalPriceLabel" Text="Total Price: " FontAttributes="Bold"/>
+        <Button Text="Back" Clicked="BackButton_Clicked"/>
     </StackLayout>
 </ContentPage>
