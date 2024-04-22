@@ -36,7 +36,7 @@ namespace MauiApp1
 
                 // Calculate and display total price
                 decimal totalPrice = orderCartItems.Sum(item => item.Price * item.Quantity);
-                TotalPriceLabel.Text = $"Total Price: {totalPrice:C}";
+                TotalPriceLabel.Text = $"Total Price: RM{totalPrice:N2}";
             }
         }
         private void IncreaseQuantity_Clicked(object sender, EventArgs e)

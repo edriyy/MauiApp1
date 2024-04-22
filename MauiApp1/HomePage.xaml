@@ -3,13 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiApp1.HomePage">
     <StackLayout>
-        <Button x:Name="Button1" Text="Food" Clicked="FoodButton_Clicked"/>
-        <Button x:Name="Button2" Text="Drinks" Clicked="DrinksButton_Clicked"/>
-        <Button x:Name="Button3" Text="Cart" Clicked="ViewCartButton_Clicked"/>
-        <Button x:Name="Button4" Text="Button4" />
-        <Button x:Name="Button5" Text="Item Management" Clicked="ItemManagementButton_Clicked"/>
-        <Button x:Name="Button6" Text="Configure" Clicked="ConfigureButton_Clicked" />
-        <Button x:Name="Button7" Text="Button7" />
-        <Button Text="Back" Clicked="BackButton_Clicked"/>
+        <Button x:Name="Button1" Text="Food" Clicked="FoodButton_Clicked" Margin="0,0,0,10"/>
+        <Button x:Name="Button2" Text="Drinks" Clicked="DrinksButton_Clicked" Margin="0,0,0,10"/>
+        <Button x:Name="Button3" Text="Cart" Clicked="ViewCartButton_Clicked" Margin="0,0,0,10"/>
+        <Button x:Name="Button4" Text="Button4" Margin="0,0,0,10"/>
+        <Button x:Name="Button5" Text="Item Management" Clicked="ItemManagementButton_Clicked" Margin="0,0,0,10"/>
+        <Button x:Name="Button6" Text="Configure" Clicked="ConfigureButton_Clicked" Margin="0,0,0,10"/>
+        <Button x:Name="Button7" Text="Button7" Margin="0,0,0,10"/>
+        <Button Text="Back" Clicked="BackButton_Clicked" />
     </StackLayout>
 </ContentPage>

@@ -15,11 +15,11 @@
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Orientation="Horizontal">
-                            <Label Text="{Binding Name}" FontAttributes="Bold" VerticalOptions="Center"/>
-                            <Label Text="{Binding Price, StringFormat='Price: {0:C}'}" VerticalOptions="Center"/>
-                            <Button Text="-" Clicked="DecreaseQuantity_Clicked"/>
-                            <Label Text="{Binding Quantity}" VerticalOptions="Center"/>
-                            <Button Text="+" Clicked="IncreaseQuantity_Clicked"/>
+                            <Label Text="{Binding Name}" FontAttributes="Bold" VerticalOptions="Center" Margin="20,0,0,0"/>
+                            <Label Text="{Binding Price, StringFormat='Price: RM{0:N2}'}" VerticalOptions="Center" Margin="20,0,0,0"/>
+                            <Button Text="-" Clicked="DecreaseQuantity_Clicked"  Margin="20,5,0,0"/>
+                            <Label Text="{Binding Quantity}" VerticalOptions="Center" Margin="20,0,0,0"/>
+                            <Button Text="+" Clicked="IncreaseQuantity_Clicked" Margin="20,5,0,0"/>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
