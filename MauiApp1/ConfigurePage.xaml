@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.ConfigurePage"
+             Title="ConfigurePage">
+    <VerticalStackLayout
+        Padding="30"
+        Spacing="20"
+        VerticalOptions="Center">
+
+        <Label Text="Toggle Dark Mode"
+               VerticalOptions="Center"
+               HorizontalOptions="Center" />
+
+        <Switch Toggled="OnDarkModeToggle"
+                IsToggled="{Binding IsDarkMode}"
+                HorizontalOptions="Center"/>
+
+        <Button Text="Back" Clicked="BackButton_Clicked"/>
+    </VerticalStackLayout>
+</ContentPage>

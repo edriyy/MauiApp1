@@ -47,4 +47,9 @@ public partial class HomePage : ContentPage
     {
         await Navigation.PushAsync(new CartPage());
     }
+
+    private async void ConfigureButton_Clicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new ConfigurePage());
+    }
 }
