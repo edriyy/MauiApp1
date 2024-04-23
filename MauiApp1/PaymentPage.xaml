@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.PaymentPage">
+    <StackLayout>
+        <!-- Display order cart items -->
+        <ListView x:Name="OrderCartListView">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{Binding Name}" FontAttributes="Bold" VerticalOptions="Center"/>
+                            <Label Text="{Binding Price, StringFormat='Price: {0:C}'}" VerticalOptions="Center"/>
+                            <Label Text="Quantity: " VerticalOptions="Center"/>
+                            <Label Text="{Binding Quantity}" VerticalOptions="Center"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <!-- Display total price -->
+        <Label x:Name="TotalPriceLabel" FontAttributes="Bold"/>
+
+        <!-- Entry field to input amount -->
+        <Entry x:Name="AmountEntry" Placeholder="Enter Amount" Keyboard="Numeric" Completed="AmountEntry_Completed"/>
+
+        <!-- Display change -->
+        <Label x:Name="ChangeLabel" FontAttributes="Bold"/>
+
+        <!-- Back button to navigate back -->
+        <Button Text="Back" Clicked="BackButton_Clicked"/>
+    </StackLayout>
+</ContentPage>

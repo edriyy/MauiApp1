@@ -47,6 +47,10 @@ public partial class HomePage : ContentPage
     {
         await Navigation.PushAsync(new CartPage());
     }
+    private void KitchenDisplayButton_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new KitchenDisplayPage());
+    }
 
     private async void ConfigureButton_Clicked(object sender, EventArgs e)
     {

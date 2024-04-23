@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.KitchenDisplayPage">
+    <StackLayout Padding="10">
+        <Button Text="Undo" Clicked="UndoButton_Clicked" HorizontalOptions="FillAndExpand"/>
+        <ListView x:Name="OrderCartListView" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" >
+                            <Label Text="{Binding Name}" VerticalOptions="Center"/>
+                            <Label Text="   Quantity: " VerticalOptions="Center"/>
+                            <Label Text="{Binding Quantity}" VerticalOptions="Center"/>
+                            <Label Text="   Table: " VerticalOptions="Center"/>
+                            <Label Text="{Binding TableNumber}" VerticalOptions="Center"/>
+                            <Button Text="Done" Clicked="DoneButton_Clicked" CommandParameter="{Binding .}" HorizontalOptions="End"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Text="Back" Clicked="BackButton_Clicked" HorizontalOptions="FillAndExpand"/>
+    </StackLayout>
+</ContentPage>
