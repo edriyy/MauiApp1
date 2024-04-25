@@ -3,12 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiApp1.PaymentPage">
     <StackLayout>
-        <!-- Display order cart items -->
+        <Label Text="Enter Table Number:"/>
+        <Entry x:Name="TableNumberEntry" Placeholder="Enter table number" Keyboard="Numeric"/>
+        <Button Text="Load Order" Clicked="LoadOrder_Clicked"/>
+
         <ListView x:Name="OrderCartListView">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Orientation="Horizontal">
+                            <CheckBox x:Name="ItemCheckBox" CheckedChanged="ItemCheckBox_CheckedChanged"/>
                             <Label Text="{Binding Name}" FontAttributes="Bold" VerticalOptions="Center"/>
                             <Label Text="{Binding Price, StringFormat='Price: {0:C}'}" VerticalOptions="Center"/>
                             <Label Text="Quantity: " VerticalOptions="Center"/>
@@ -18,17 +22,21 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        <Button Text="Calculate Total Price" Clicked="CalculateTotalPriceButton_Clicked"/>
 
-        <!-- Display total price -->
-        <Label x:Name="TotalPriceLabel" FontAttributes="Bold"/>
 
-        <!-- Entry field to input amount -->
-        <Entry x:Name="AmountEntry" Placeholder="Enter Amount" Keyboard="Numeric" Completed="AmountEntry_Completed"/>
-
-        <!-- Display change -->
-        <Label x:Name="ChangeLabel" FontAttributes="Bold"/>
-
-        <!-- Back button to navigate back -->
+        <Label x:Name="TotalPriceLabel" Text="Total Price: " FontAttributes="Bold"/>
+        <Label x:Name="CalculationResultLabel" Text="Current Price: " FontAttributes="Bold"/>
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Select All" VerticalOptions="Center"/>
+            <CheckBox x:Name="SelectAllCheckBox"  CheckedChanged="SelectAllCheckBox_CheckedChanged"/>
+        </StackLayout>
+        <Entry x:Name="AmountPaidEntry" Placeholder="Enter amount paid" Keyboard="Numeric"/>
+        <Button Text="Calculate Change" Clicked="CalculateChangeButton_Clicked"/>
+        <Label x:Name="ChangeLabel" Text="Change: " FontAttributes="Bold"/>
+        <Button Text="Remove Checked Items" Clicked="RemoveCheckedItemsButton_Clicked"/>
+        <Button Text="Print Receipt" Clicked="PrintReceiptButton_Clicked"/>
+        <Button Text="Complete" Clicked="CompleteButton_Clicked"/>
         <Button Text="Back" Clicked="BackButton_Clicked"/>
     </StackLayout>
 </ContentPage>

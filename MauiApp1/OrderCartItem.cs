@@ -14,5 +14,6 @@ namespace MauiApp1
         public string ItemType { get; set; }
         public int Quantity { get; set; }
         public int TableNumber { get; set; }
+        public bool IsSelected { get; set; }
     }
 }

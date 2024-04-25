@@ -8,7 +8,7 @@ namespace MauiApp1;
 public partial class DrinkMenuPage : ContentPage
 {
     private readonly string _dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "menu.db");
-    private readonly string _orderDbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "order_cart3.db");
+    private readonly string _orderDbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "order_cart4.db");
     public DrinkMenuPage()
     {
         InitializeComponent();

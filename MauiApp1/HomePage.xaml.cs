@@ -56,4 +56,8 @@ public partial class HomePage : ContentPage
     {
         await Navigation.PushAsync(new ConfigurePage());
     }
+    private void PaymentButton_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new PaymentPage());
+    }
 }

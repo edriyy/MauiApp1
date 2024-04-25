@@ -28,7 +28,6 @@
 
 
         <Label x:Name="TotalPriceLabel" Text="Total Price: " FontAttributes="Bold"/>
-        <Button Text="Proceed to Payment" Clicked="ProceedToPayment_Clicked"/>
         <Button Text="Back" Clicked="BackButton_Clicked"/>
     </StackLayout>
 </ContentPage>

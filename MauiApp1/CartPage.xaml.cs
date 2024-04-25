@@ -7,7 +7,7 @@ namespace MauiApp1
 {
     public partial class CartPage : ContentPage
     {
-        private readonly string _orderDbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "order_cart3.db");
+        private readonly string _orderDbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "order_cart4.db");
 
         public CartPage()
         {
@@ -81,32 +81,6 @@ namespace MauiApp1
             }
 
             LoadOrderCartItems(tableNumber);
-        }
-        private void ProceedToPayment_Clicked(object sender, EventArgs e)
-        {
-            // Get the table number from the entry field
-            if (!int.TryParse(TableNumberEntry.Text, out int tableNumber))
-            {
-                DisplayAlert("Error", "Please enter a valid table number.", "OK");
-                return;
-            }
-
-            // Load order cart items
-            LoadOrderCartItems(tableNumber);
-
-            // Calculate total price
-            decimal totalPrice = CalculateTotalPrice();
-
-            // Navigate to payment page and pass order cart items and total price
-            Navigation.PushAsync(new PaymentPage(OrderCartListView.ItemsSource as List<OrderCartItem>, totalPrice));
-        }
-        private decimal CalculateTotalPrice()
-        {
-            if (OrderCartListView.ItemsSource is List<OrderCartItem> orderCartItems)
-            {
-                return orderCartItems.Sum(item => item.Price * item.Quantity);
-            }
-            return 0; // or any default value
         }
 
 

@@ -2,7 +2,7 @@ namespace MauiApp1;
 
 public partial class KitchenDisplayPage : ContentPage
 {
-    private readonly string _orderDbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "order_cart3.db");
+    private readonly string _orderDbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "order_cart4.db");
     private List<OrderCartItem> _originalOrderCartItems;
     public KitchenDisplayPage()
 	{
