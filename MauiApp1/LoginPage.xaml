@@ -2,15 +2,26 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiApp1.LoginPage">
-    <StackLayout>
-        <Entry Placeholder="Username" x:Name="UsernameEntry"/>
-        <Entry Placeholder="Password" IsPassword="True" x:Name="PasswordEntry"/>
-        <Button Text="Login" Clicked="OnLoginClicked"/>
-        <Label Text="Change Password" TextColor="Blue" FontAttributes="Italic" HorizontalOptions="CenterAndExpand" Margin="0,10,0,0"  >
-            <Label.GestureRecognizers>
-                <TapGestureRecognizer Tapped="ChangePasswordLabel_Tapped"/>
-            </Label.GestureRecognizers>
-        </Label>
-        <Button Text="Back" Clicked="BackButton_Clicked"/>
-    </StackLayout>
+    <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+        <!-- Main content stack -->
+        <StackLayout>
+            <Entry Placeholder="Username" x:Name="UsernameEntry"/>
+            <Entry Placeholder="Password" IsPassword="True" x:Name="PasswordEntry"/>
+            <Button Text="Login" Clicked="OnLoginClicked"/>
+            <Label Text="Change Password" TextColor="Blue" FontAttributes="Italic" 
+                   HorizontalOptions="CenterAndExpand" Margin="0,10,0,0">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="ChangePasswordLabel_Tapped"/>
+                </Label.GestureRecognizers>
+            </Label>
+            <Button Text="Back" Clicked="BackButton_Clicked"/>
+        </StackLayout>
+
+        <Frame BackgroundColor="#66000000" Padding="20"  HorizontalOptions="Center" VerticalOptions="Center" CornerRadius="10" IsVisible="False" x:Name="loadingFrame">
+            <ActivityIndicator x:Name="loadingIndicator"
+                               IsRunning="False"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center" />
+        </Frame>
+    </Grid>
 </ContentPage>

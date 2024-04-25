@@ -28,36 +28,92 @@ public partial class HomePage : ContentPage
         Navigation.PopAsync();
     }
 
-    private void ItemManagementButton_Clicked(object sender, EventArgs e)
+    private async void ItemManagementButton_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new ItemManagementPage());
+        loadingFrame.IsVisible = true;
+        loadingIndicator.IsRunning = true;
+
+        await Task.Delay(1000);
+
+        await Navigation.PushAsync(new ItemManagementPage());
+
+        loadingFrame.IsVisible = false;
+        loadingIndicator.IsRunning = false;
     }
 
-    private void FoodButton_Clicked(object sender, EventArgs e)
+    private async void FoodButton_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new FoodMenuPage());
+        loadingFrame.IsVisible = true;
+        loadingIndicator.IsRunning = true;
+
+        await Task.Delay(1000);
+
+        await Navigation.PushAsync(new FoodMenuPage());
+
+        loadingFrame.IsVisible = false;
+        loadingIndicator.IsRunning = false;
     }
 
-    private void DrinksButton_Clicked(object sender, EventArgs e)
+    private async void DrinksButton_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new DrinkMenuPage());
+        loadingFrame.IsVisible = true;
+        loadingIndicator.IsRunning = true;
+
+        await Task.Delay(1000);
+
+        await Navigation.PushAsync(new DrinkMenuPage());
+
+        loadingFrame.IsVisible = false;
+        loadingIndicator.IsRunning = false;
     }
 
     private async void ViewCartButton_Clicked(object sender, EventArgs e)
     {
+        loadingFrame.IsVisible = true;
+        loadingIndicator.IsRunning = true;
+
+        await Task.Delay(1000);
+
         await Navigation.PushAsync(new CartPage());
+
+        loadingFrame.IsVisible = false;
+        loadingIndicator.IsRunning = false;
     }
-    private void KitchenDisplayButton_Clicked(object sender, EventArgs e)
+    private async void KitchenDisplayButton_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new KitchenDisplayPage());
+        loadingFrame.IsVisible = true;
+        loadingIndicator.IsRunning = true;
+
+        await Task.Delay(1000);
+
+        await Navigation.PushAsync(new KitchenDisplayPage());
+
+        loadingFrame.IsVisible = false;
+        loadingIndicator.IsRunning = false;
     }
 
     private async void ConfigureButton_Clicked(object sender, EventArgs e)
     {
+        loadingFrame.IsVisible = true;
+        loadingIndicator.IsRunning = true;
+
+        await Task.Delay(1000);
+
         await Navigation.PushAsync(new ConfigurePage());
+
+        loadingFrame.IsVisible = false;
+        loadingIndicator.IsRunning = false;
     }
-    private void PaymentButton_Clicked(object sender, EventArgs e)
+    private async void PaymentButton_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new PaymentPage());
+        loadingFrame.IsVisible = true;
+        loadingIndicator.IsRunning = true;
+
+        await Task.Delay(1000);
+
+        await Navigation.PushAsync(new PaymentPage());
+
+        loadingFrame.IsVisible = false;
+        loadingIndicator.IsRunning = false;
     }
 }

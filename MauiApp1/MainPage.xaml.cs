@@ -9,14 +9,30 @@
             InitializeComponent();
         }
 
-        private void AdminButton_Clicked(object sender, EventArgs e)
+        private async void AdminButton_Clicked(object sender, EventArgs e)
         {
+            loadingFrame.IsVisible = true;
+            loadingIndicator.IsRunning = true;
+
+            await Task.Delay(1000);
+
             Navigation.PushAsync(new LoginPage());
+
+            loadingFrame.IsVisible = false;
+            loadingIndicator.IsRunning = false;
         }
 
-        private void EmployeeButton_Clicked(object sender, EventArgs e)
+        private async void EmployeeButton_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new HomePage(true));
+            loadingFrame.IsVisible = true;
+            loadingIndicator.IsRunning = true;
+
+            await Task.Delay(1000);
+
+            await Navigation.PushAsync(new HomePage(true));
+
+            loadingFrame.IsVisible = false;
+            loadingIndicator.IsRunning = false;
         }
     }
 
