@@ -7,7 +7,7 @@ public partial class LoginPage : ContentPage
 	{
 		InitializeComponent();
 	}
-    private void OnLoginClicked(object sender, EventArgs e)
+    private async void OnLoginClicked(object sender, EventArgs e)
     {
         string username = UsernameEntry.Text;
         string password = PasswordEntry.Text;
@@ -35,7 +35,15 @@ public partial class LoginPage : ContentPage
             // Clear entry fields
             UsernameEntry.Text = string.Empty;
             PasswordEntry.Text = string.Empty;
-            Navigation.PushAsync(new HomePage());
+            loadingFrame.IsVisible = true;
+            loadingIndicator.IsRunning = true;
+
+            await Task.Delay(1000);
+
+            await Navigation.PushAsync(new HomePage());
+
+            loadingFrame.IsVisible = false;
+            loadingIndicator.IsRunning = false;
         }
     }
     private async void ChangePasswordLabel_Tapped(object sender, EventArgs e)
