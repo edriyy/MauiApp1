@@ -4,11 +4,14 @@ public partial class KitchenDisplayPage : ContentPage
 {
     private readonly string _orderDbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "order_cart4.db");
     private List<OrderCartItem> _originalOrderCartItems;
+
     public KitchenDisplayPage()
-	{
-		InitializeComponent();
+    {
+        InitializeComponent();
         LoadOrderCartItems();
+        StartAutoRefresh();
     }
+
     private void LoadOrderCartItems()
     {
         _originalOrderCartItems = GetOrderCartItemsFromDatabase();
@@ -22,11 +25,25 @@ public partial class KitchenDisplayPage : ContentPage
             return db.OrderCartItems.ToList();
         }
     }
+
+    private async void StartAutoRefresh()
+    {
+        while (true)
+        {
+            await Task.Delay(TimeSpan.FromSeconds(30)); // Refresh interval (adjust as needed)
+            RefreshOrderCartItems();
+        }
+    }
+
+    private void RefreshOrderCartItems()
+    {
+        _originalOrderCartItems = GetOrderCartItemsFromDatabase();
+        OrderCartListView.ItemsSource = null;
+        OrderCartListView.ItemsSource = _originalOrderCartItems;
+    }
+
     private void UndoButton_Clicked(object sender, EventArgs e)
     {
-        // Reset the items to the original list
-        OrderCartListView.ItemsSource = null; // Clear the ItemsSource
-        OrderCartListView.ItemsSource = _originalOrderCartItems; // Reset the ItemsSource
         LoadOrderCartItems();
     }
 
@@ -34,14 +51,18 @@ public partial class KitchenDisplayPage : ContentPage
     {
         var orderCartItem = (OrderCartItem)((Button)sender).CommandParameter;
 
-        // Remove the item from the display
-        if (OrderCartListView.ItemsSource is List<OrderCartItem> orderCartItems)
+        // Perform the "Done" action here
+        // For example, you can mark the order as completed in the database
+
+        // Now remove the item from the display
+        if (_originalOrderCartItems.Contains(orderCartItem))
         {
-            orderCartItems.Remove(orderCartItem);
-            OrderCartListView.ItemsSource = null; // Clear the ItemsSource
-            OrderCartListView.ItemsSource = orderCartItems; // Reset the ItemsSource
+            _originalOrderCartItems.Remove(orderCartItem);
+            OrderCartListView.ItemsSource = null;
+            OrderCartListView.ItemsSource = _originalOrderCartItems;
         }
     }
+
     private void BackButton_Clicked(object sender, EventArgs e)
     {
         Navigation.PopAsync();

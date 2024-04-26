@@ -116,4 +116,8 @@ public partial class HomePage : ContentPage
         loadingFrame.IsVisible = false;
         loadingIndicator.IsRunning = false;
     }
+    private void DataHistoryButton_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new DataHistoryPage());
+    }
 }

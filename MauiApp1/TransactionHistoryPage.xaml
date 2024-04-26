@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.TransactionHistoryPage"
+             Title="TransactionHistoryPage">
+    <StackLayout>
+        <!-- Add UI elements here to display receipt data -->
+        <ListView x:Name="ReceiptListView">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ScrollView Orientation="Horizontal">
+                            <StackLayout Padding="10" Orientation="Horizontal">
+                                <Label Text="{Binding TableNumber}" FontSize="Small" FontAttributes="Bold"/>
+                                <StackLayout Margin="10,0">
+                                    <Label Text="Item: " FontSize="Micro" FontAttributes="Bold"/>
+                                    <Label Text="{Binding Name}" FontSize="Micro"/>
+                                </StackLayout>
+                                <StackLayout Margin="10,0">
+                                    <Label Text="Price: " FontSize="Micro" FontAttributes="Bold"/>
+                                    <Label Text="{Binding Price, StringFormat='{0:C}'}" FontSize="Micro"/>
+                                </StackLayout>
+                                <StackLayout Margin="10,0">
+                                    <Label Text="Quantity: " FontSize="Micro" FontAttributes="Bold"/>
+                                    <Label Text="{Binding Quantity}" FontSize="Micro"/>
+                                </StackLayout>
+                                <StackLayout Margin="10,0">
+                                    <Label Text="Total Price: " FontSize="Micro" FontAttributes="Bold"/>
+                                    <Label Text="{Binding TotalPrice, StringFormat='{0:C}'}" FontSize="Micro"/>
+                                </StackLayout>
+                                <StackLayout Margin="10,0">
+                                    <Label Text="Change: " FontSize="Micro" FontAttributes="Bold"/>
+                                    <Label Text="{Binding Change, StringFormat='{0:C}'}" FontSize="Micro"/>
+                                </StackLayout>
+                                <Button Text="Remove" Clicked="RemoveReceiptClicked" CommandParameter="{Binding Id}" Margin="10,0" BackgroundColor="Red" TextColor="White" FontSize="Micro" HeightRequest="40" WidthRequest="80"/>
+                            </StackLayout>
+                        </ScrollView>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Text="Back" Clicked="BackButton_Clicked"/>
+    </StackLayout>
+</ContentPage>

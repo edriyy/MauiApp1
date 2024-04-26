@@ -5,6 +5,7 @@ namespace MauiApp1;
 public partial class PaymentPage : ContentPage
 {
     private readonly string _orderDbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "order_cart4.db");
+    private readonly string _receiptDbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "receipt.db");
     private List<OrderCartItem> selectedItems = new List<OrderCartItem>();
     public PaymentPage()
     {
@@ -161,6 +162,27 @@ public partial class PaymentPage : ContentPage
             selectedItems.Remove(item);
         }
     }
+    private void StoreReceiptInDatabase(int tableNumber, string itemName, decimal itemPrice, int quantity, decimal totalPrice, decimal amountPaid, decimal change)
+    {
+        using (var db = new AppDbContext(_receiptDbPath))
+        {
+            var receipt = new Receipt
+            {
+                TableNumber = tableNumber,
+                Name = itemName,
+                Price = itemPrice,
+                Quantity = quantity,
+                TotalPrice = totalPrice,
+                AmountPaid = amountPaid,
+                Change = change
+            };
+
+            db.Receipts.Add(receipt);
+            db.SaveChanges();
+
+            DisplayAlert("Receipt", "Receipt saved successfully.", "OK");
+        }
+    }
     private void PrintReceiptButton_Clicked(object sender, EventArgs e)
     {
         if (!int.TryParse(TableNumberEntry.Text, out int tableNumber))
@@ -209,6 +231,9 @@ public partial class PaymentPage : ContentPage
             {
                 receiptBuilder.AppendLine($"{item.Name} - Price: {item.Price:C} - Quantity: {item.Quantity}");
                 totalPrice += item.Price * item.Quantity;
+
+                // Store receipt entry for each item
+                StoreReceiptInDatabase(tableNumber, item.Name, item.Price, item.Quantity, item.Price * item.Quantity, amountPaid, amountPaid - totalPrice);
             }
 
             receiptBuilder.AppendLine();

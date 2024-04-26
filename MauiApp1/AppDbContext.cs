@@ -14,7 +14,7 @@ namespace MauiApp1
         public DbSet<UserAccount> Users { get; set; }
         public DbSet<MenuItem> MenuItems { get; set; }
         public DbSet<OrderCartItem> OrderCartItems { get; set; }
-
+        public DbSet<Receipt> Receipts { get; set; }
 
         public AppDbContext(string dbPath)
         {
