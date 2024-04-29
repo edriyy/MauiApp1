@@ -9,12 +9,12 @@
             <Button x:Name="Button2" Text="Drinks" Clicked="DrinksButton_Clicked" Margin="0,0,0,10"/>
             <Button x:Name="Button3" Text="Cart" Clicked="ViewCartButton_Clicked" Margin="0,0,0,10"/>
             <Button Text="Kitchen" Clicked="KitchenDisplayButton_Clicked" Margin="0,0,0,10" />
-            <Button Text="Payment" Clicked="PaymentButton_Clicked" />
+            <Button Text="Payment" Clicked="PaymentButton_Clicked" Margin="0,0,0,10"/>
             <Button x:Name="Button4" Text="Button4" Margin="0,0,0,10"/>
             <Button x:Name="Button5" Text="Item Management" Clicked="ItemManagementButton_Clicked" Margin="0,0,0,10"/>
             <Button x:Name="Button6" Text="Data History" Clicked="DataHistoryButton_Clicked" Margin="0,0,0,10"/>
             <Button x:Name="Button7" Text="Configure" Clicked="ConfigureButton_Clicked" Margin="0,0,0,10"/>
-            <Button Text="Back" Clicked="BackButton_Clicked" />
+            <Button Text="Back" Clicked="BackButton_Clicked" Margin="0,0,0,10" />
         </StackLayout>
 
         <!-- Loading animation Frame -->
