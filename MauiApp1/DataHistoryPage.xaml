@@ -6,7 +6,7 @@
     <StackLayout >
 
         <Button Text="Transaction History" Clicked="TransactionHistoryButton_Clicked"/>
-        <Button Text="Data Statistic"/>
+        <Button Text="Data Statistic" Clicked="DataStatisticButton_Clicked"/>
         <Button Text="Transaction Detail"/>
         <Button Text="Back" Clicked="BackButton_Clicked"/>
 

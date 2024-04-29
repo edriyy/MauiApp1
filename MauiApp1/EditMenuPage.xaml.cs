@@ -10,11 +10,11 @@ public partial class EditMenuPage : ContentPage
     }
     private void SearchButton_Clicked(object sender, EventArgs e)
     {
-        string searchTerm = SearchEntry.Text;
+        string searchTerm = SearchEntry.Text.ToLower();
 
         using (var db = new AppDbContext(_dbPath))
         {
-            var menuItem = db.MenuItems.FirstOrDefault(item => item.Name == searchTerm);
+            var menuItem = db.MenuItems.FirstOrDefault(item => item.Name.ToLower() == searchTerm);
 
             if (menuItem != null)
             {

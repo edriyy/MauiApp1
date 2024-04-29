@@ -14,4 +14,8 @@ public partial class DataHistoryPage : ContentPage
     {
         Navigation.PopAsync();
     }
+    private void DataStatisticButton_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new DataStatisticPage());
+    }
 }
