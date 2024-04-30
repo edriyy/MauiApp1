@@ -5,6 +5,7 @@
     <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
         <!-- Main content stack -->
         <StackLayout>
+            <Image Source="admin.jpg" />
             <Entry Placeholder="Username" x:Name="UsernameEntry"/>
             <Entry Placeholder="Password" IsPassword="True" x:Name="PasswordEntry"/>
             <Button Text="Login" Clicked="OnLoginClicked"/>
