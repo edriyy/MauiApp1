@@ -43,12 +43,13 @@
             <CheckBox x:Name="SelectAllCheckBox"  CheckedChanged="SelectAllCheckBox_CheckedChanged"/>
         </StackLayout>
         <Entry x:Name="AmountPaidEntry" Placeholder="Enter amount paid" Keyboard="Numeric"/>
-        <Button Text="Calculate Change" Clicked="CalculateChangeButton_Clicked"/>
-        <Label x:Name="ChangeLabel" Text="Change: " FontAttributes="Bold"/>
-        <Button Text="Remove Checked Items" Clicked="RemoveCheckedItemsButton_Clicked"/>
-        <Button Text="Print Receipt" Clicked="PrintReceiptButton_Clicked"/>
-        <Button Text="Complete" Clicked="CompleteButton_Clicked"/>
-        <Button Text="Back" Clicked="BackButton_Clicked"/>
+            <Button Text="Calculate Change" Clicked="CalculateChangeButton_Clicked" WidthRequest="393" HeightRequest="40" Margin="0,0,0,5"/>
+            <Label x:Name="ChangeLabel" Text="Change: " FontAttributes="Bold"/>
+            <Button Text="Remove Checked Items" Clicked="RemoveCheckedItemsButton_Clicked" WidthRequest="393" HeightRequest="40" Margin="0,4,0,5"/>
+            <Button Text="Print Receipt" Clicked="PrintReceiptButton_Clicked" WidthRequest="393" HeightRequest="40" Margin="0,5,0,5"/>
+            <Button Text="Complete" Clicked="CompleteButton_Clicked" WidthRequest="393" HeightRequest="40" Margin="0,5,0,5"/>
+            <Button Text="Back" Clicked="BackButton_Clicked" WidthRequest="393" HeightRequest="40" Margin="0,5,0,0"/>
+
 
         </StackLayout>
     </Grid>
