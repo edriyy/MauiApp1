@@ -17,7 +17,7 @@ public partial class HomePage : ContentPage
     private void UpdateButtonsVisibility()
     {
         // Hide buttons 4, 5, 6, and 7 if Button 2 is clicked
-        Button4.IsVisible = !_isButton2Clicked;
+        //Button4.IsVisible = !_isButton2Clicked;
         Button5.IsVisible = !_isButton2Clicked;
         Button6.IsVisible = !_isButton2Clicked;
         Button7.IsVisible = !_isButton2Clicked;
