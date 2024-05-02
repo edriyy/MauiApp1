@@ -11,8 +11,9 @@ public partial class PaymentPage : ContentPage
     {
         InitializeComponent();
     }
-    private void LoadOrder_Clicked(object sender, EventArgs e)
+    private async void LoadOrder_Clicked(object sender, EventArgs e)
     {
+
         // Get the table number from the entry field
         if (!int.TryParse(TableNumberEntry.Text, out int tableNumber))
         {
@@ -20,10 +21,19 @@ public partial class PaymentPage : ContentPage
             return;
         }
 
+        loadingFrame.IsVisible = true;
+        loadingIndicator.IsRunning = true;
+
+        await Task.Delay(2000);
+
         LoadOrderCartItems(tableNumber);
+
+        loadingFrame.IsVisible = false;
+        loadingIndicator.IsRunning = false;
     }
-    private void LoadOrderCartItems(int tableNumber)
+    private async void LoadOrderCartItems(int tableNumber)
     {
+
         using (var db = new AppDbContext(_orderDbPath))
         {
             var orderCartItems = db.OrderCartItems.Where(item => item.TableNumber == tableNumber).ToList();
@@ -32,8 +42,11 @@ public partial class PaymentPage : ContentPage
 
             // Calculate and display total price
             decimal totalPrice = orderCartItems.Sum(item => item.Price * item.Quantity);
-            TotalPriceLabel.Text = $"Total Price: {totalPrice:C}";
+            TotalPriceLabel.Text = $"Total Price: RM{totalPrice:N2}";
         }
+
+        loadingFrame.IsVisible = false;
+        loadingIndicator.IsRunning = false;
     }
 
 
@@ -69,7 +82,7 @@ public partial class PaymentPage : ContentPage
         decimal totalPrice = selectedItems.Sum(item => item.Price * item.Quantity);
         decimal change = amountPaid - totalPrice;
 
-        ChangeLabel.Text = $"Change: {change:C}";
+        ChangeLabel.Text = $"Change: RM{change:N2}";
     }
     private void ItemCheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
     {
@@ -114,7 +127,7 @@ public partial class PaymentPage : ContentPage
     private void CalculateTotalPriceButton_Clicked(object sender, EventArgs e)
     {
         decimal totalPrice = selectedItems.Sum(item => item.Price * item.Quantity);
-        CalculationResultLabel.Text = $"Total Price of Selected Items: {totalPrice:C}";
+        CalculationResultLabel.Text = $"Total Price of Selected Items: RM{totalPrice:N2}";
     }
 
     /*private void RemoveCheckedItemsButton_Clicked(object sender, EventArgs e)

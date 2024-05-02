@@ -2,10 +2,21 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiApp1.PaymentPage">
-    <StackLayout>
+
+    <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+
+        <Frame BackgroundColor="#66000000" Padding="20" HorizontalOptions="Center" VerticalOptions="Center" CornerRadius="10" IsVisible="False" x:Name="loadingFrame">
+            <ActivityIndicator x:Name="loadingIndicator"
+                               IsRunning="False"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center" />
+        </Frame>
+        
+        <StackLayout>
         <Label Text="Enter Table Number:"/>
         <Entry x:Name="TableNumberEntry" Placeholder="Enter table number" Keyboard="Numeric"/>
         <Button Text="Load Order" Clicked="LoadOrder_Clicked"/>
+
 
         <ListView x:Name="OrderCartListView">
             <ListView.ItemTemplate>
@@ -14,8 +25,8 @@
                         <StackLayout Orientation="Horizontal">
                             <CheckBox x:Name="ItemCheckBox" CheckedChanged="ItemCheckBox_CheckedChanged"/>
                             <Label Text="{Binding Name}" FontAttributes="Bold" VerticalOptions="Center"/>
-                            <Label Text="{Binding Price, StringFormat='Price: {0:C}'}" VerticalOptions="Center"/>
-                            <Label Text="Quantity: " VerticalOptions="Center"/>
+                            <Label Text="{Binding Price,  StringFormat='  Price: RM{0:N2}'}" VerticalOptions="Center"/>
+                            <Label Text="  Quantity: " VerticalOptions="Center"/>
                             <Label Text="{Binding Quantity}" VerticalOptions="Center"/>
                         </StackLayout>
                     </ViewCell>
@@ -38,5 +49,8 @@
         <Button Text="Print Receipt" Clicked="PrintReceiptButton_Clicked"/>
         <Button Text="Complete" Clicked="CompleteButton_Clicked"/>
         <Button Text="Back" Clicked="BackButton_Clicked"/>
-    </StackLayout>
+
+        </StackLayout>
+    </Grid>
+        
 </ContentPage>
