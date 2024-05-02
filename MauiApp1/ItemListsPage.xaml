@@ -8,7 +8,7 @@
         <ListView x:Name="ItemListView" ItemsSource="{Binding MenuItems}" VerticalOptions="FillAndExpand">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Text="{Binding Name}" Detail="{Binding Price, StringFormat='Price: {0:C}'}" />
+                    <TextCell Text="{Binding Name}" Detail="{Binding Price, StringFormat='Price: RM{0:N2}'}" />
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

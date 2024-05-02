@@ -12,7 +12,7 @@
                     <ViewCell>
                         <StackLayout Orientation="Horizontal">
                             <Label Text="{Binding Name}" FontAttributes="Bold" VerticalOptions="Center" Margin="20,0,0,0"/>
-                            <Label Text="{Binding Price, StringFormat='Price: MYR {0:N2}'}" VerticalOptions="Center" Margin="20,0,0,0"/>
+                            <Label Text="{Binding Price, StringFormat='Price: RM{0:N2}'}" VerticalOptions="Center" Margin="20,0,0,0"/>
                             <Button Text="Add to Cart" Clicked="AddToCart_Clicked" CommandParameter="{Binding}" VerticalOptions="Center" Margin="20,0,0,0"/>
                         </StackLayout>
                     </ViewCell>
