@@ -25,7 +25,7 @@
                         <StackLayout Orientation="Horizontal">
                             <CheckBox x:Name="ItemCheckBox" CheckedChanged="ItemCheckBox_CheckedChanged"/>
                             <Label Text="{Binding Name}" FontAttributes="Bold" VerticalOptions="Center"/>
-                            <Label Text="{Binding Price, StringFormat='Price: RM{0:N2}'}" VerticalOptions="Center"/>
+                            <Label Text="{Binding Price, StringFormat='Price:RM{0:N2}'}" VerticalOptions="Center"/>
                             <Label Text="Quantity: " VerticalOptions="Center"/>
                             <Label Text="{Binding Quantity}" VerticalOptions="Center"/>
                         </StackLayout>
