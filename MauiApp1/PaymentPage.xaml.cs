@@ -210,16 +210,25 @@ public partial class PaymentPage : ContentPage
             return;
         }
 
-        string receipt = GenerateReceiptForTable(tableNumber, amountPaid);
+        string receiptText = GenerateReceiptForTable(tableNumber, amountPaid);
 
-        if (string.IsNullOrEmpty(receipt))
+        if (string.IsNullOrEmpty(receiptText))
         {
             DisplayAlert("Receipt", "No items found for the specified table number.", "OK");
         }
         else
         {
-            DisplayAlert("Receipt", receipt, "OK");
+            ShareReceipt(receiptText);
         }
+    }
+
+    private async void ShareReceipt(string receiptText)
+    {
+        await Share.RequestAsync(new ShareTextRequest
+        {
+            Text = receiptText,
+            Title = "Share Receipt"
+        });
     }
 
 
