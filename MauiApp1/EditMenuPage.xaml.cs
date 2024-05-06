@@ -68,6 +68,39 @@ public partial class EditMenuPage : ContentPage
             }
         }
     }
+
+    private async void DeleteItemButton_Clicked(object sender, EventArgs e)
+    {
+        // Prompt user to confirm deletion
+        bool deleteConfirmed = await DisplayAlert("Confirm", "Are you sure you want to delete this item?", "Yes", "No");
+
+        if (deleteConfirmed)
+        {
+            using (var db = new AppDbContext(_dbPath))
+            {
+                var menuItem = db.MenuItems.FirstOrDefault(item => item.Name == ItemNameLabel.Text);
+
+                if (menuItem != null)
+                {
+                    db.MenuItems.Remove(menuItem);
+                    db.SaveChanges();
+
+                    DisplayAlert("Success", "Item deleted successfully!", "OK");
+
+                    // Clear fields and hide layout
+                    NewNameEntry.Text = string.Empty;
+                    NewPriceEntry.Text = string.Empty;
+                    EditItemLayout.IsVisible = false;
+                }
+                else
+                {
+                    DisplayAlert("Error", "Item not found.", "OK");
+                }
+            }
+        }
+    }
+
+
     private void CancelButton_Clicked(object sender, EventArgs e)
     {
         // Clear fields and hide layout

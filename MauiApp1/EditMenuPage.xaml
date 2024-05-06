@@ -20,6 +20,7 @@
             <Entry x:Name="NewNameEntry" Placeholder="New name" />
             <Entry x:Name="NewPriceEntry" Placeholder="New price" />
             <Button Text="Save Changes" Clicked="SaveChangesButton_Clicked" />
+            <Button Text="Delete Item" Clicked="DeleteItemButton_Clicked" />
             <Button Text="Cancel" Clicked="CancelButton_Clicked" />
         </StackLayout>
 
