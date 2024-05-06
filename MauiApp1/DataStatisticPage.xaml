@@ -11,6 +11,5 @@
             <Label x:Name="AveragePriceLabel" FontAttributes="Bold" />
             <Label x:Name="TotalQuantityLabel" FontAttributes="Bold" />
         </VerticalStackLayout>
-        <Button Text="Back" Clicked="BackButton_Clicked"/>
     </VerticalStackLayout>
 </ContentPage>
