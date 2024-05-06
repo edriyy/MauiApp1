@@ -44,4 +44,9 @@ public partial class DataStatisticPage : ContentPage
             DisplayAlert("Invalid Input", "Please enter an item name.", "OK");
         }
     }
+
+    private void BackButton_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PopAsync();
+    }
 }
