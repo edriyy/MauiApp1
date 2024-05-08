@@ -11,47 +11,46 @@
                                HorizontalOptions="Center"
                                VerticalOptions="Center" />
         </Frame>
-        
+
         <StackLayout>
-        <Label Text="Enter Table Number:"/>
-        <Entry x:Name="TableNumberEntry" Placeholder="Enter table number" Keyboard="Numeric"/>
-        <Button Text="Load Order" Clicked="LoadOrder_Clicked"/>
+            <Label Text="Enter Table Number:" Margin="10,0,0,0"/>
+            <Entry x:Name="TableNumberEntry" Placeholder="Enter table number" Keyboard="Numeric" WidthRequest="200" HeightRequest="40" Margin="0,0,0,0"/>
+            <Button Text="Load Order" Clicked="LoadOrder_Clicked" WidthRequest="200" HeightRequest="40" Margin="0,0,0,0"/>
 
 
-        <ListView x:Name="OrderCartListView">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <StackLayout Orientation="Horizontal">
-                            <CheckBox x:Name="ItemCheckBox" CheckedChanged="ItemCheckBox_CheckedChanged"/>
-                            <Label Text="{Binding Name}" FontAttributes="Bold" VerticalOptions="Center"/>
-                            <Label Text="{Binding Price, StringFormat='Price:RM{0:N2}'}" VerticalOptions="Center"/>
-                            <Label Text="Quantity: " VerticalOptions="Center"/>
-                            <Label Text="{Binding Quantity}" VerticalOptions="Center"/>
-                        </StackLayout>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-        <Button Text="Calculate Total Price" Clicked="CalculateTotalPriceButton_Clicked"/>
+            <ListView x:Name="OrderCartListView" Margin="0,0,0,0">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <CheckBox x:Name="ItemCheckBox" CheckedChanged="ItemCheckBox_CheckedChanged"/>
+                                <Label Text="{Binding Name}" FontAttributes="Bold" VerticalOptions="Center"/>
+                                <Label Text="{Binding Price, StringFormat='Price:RM{0:N2}'}" VerticalOptions="Center"/>
+                                <Label Text="Quantity: " VerticalOptions="Center"/>
+                                <Label Text="{Binding Quantity}" VerticalOptions="Center"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Text="Calculate Total Price" Clicked="CalculateTotalPriceButton_Clicked"  WidthRequest="393" HeightRequest="40" Margin="0,0,0,5"/>
 
-
-        <Label x:Name="TotalPriceLabel" Text="Total Price: " FontAttributes="Bold"/>
-        <Label x:Name="CalculationResultLabel" Text="Current Price: " FontAttributes="Bold"/>
-        <StackLayout Orientation="Horizontal">
-            <Label Text="Select All" VerticalOptions="Center"/>
-            <CheckBox x:Name="SelectAllCheckBox"  CheckedChanged="SelectAllCheckBox_CheckedChanged"/>
+            <Label x:Name="TotalPriceLabel" Text="Total Price: " FontAttributes="Bold" Margin="10,0,0,2"/>
+            <Label x:Name="CalculationResultLabel" Text="Current Price: " FontAttributes="Bold" Margin="10,0,0,0"/>
+        <StackLayout Orientation="Horizontal" Margin="10,0,0,-10">
+            <Label Text="Select All" VerticalOptions="Center" Margin="0,0,0,0"/>
+            <CheckBox x:Name="SelectAllCheckBox"  CheckedChanged="SelectAllCheckBox_CheckedChanged" Margin="0,0,0,0"/>
         </StackLayout>
-        <Entry x:Name="AmountPaidEntry" Placeholder="Enter amount paid" Keyboard="Numeric"/>
-            <Button Text="Calculate Change" Clicked="CalculateChangeButton_Clicked" WidthRequest="393" HeightRequest="40" Margin="0,0,0,5"/>
-            <Label x:Name="ChangeLabel" Text="Change: " FontAttributes="Bold"/>
-            <Button Text="Remove Checked Items" Clicked="RemoveCheckedItemsButton_Clicked" WidthRequest="393" HeightRequest="40" Margin="0,4,0,5"/>
-            <Button Text="Print Receipt" Clicked="PrintReceiptButton_Clicked" WidthRequest="393" HeightRequest="40" Margin="0,5,0,5"/>
-            <Button Text="Complete" Clicked="CompleteButton_Clicked" WidthRequest="393" HeightRequest="40" Margin="0,5,0,5"/>
-            <Button Text="Back" Clicked="BackButton_Clicked" WidthRequest="393" HeightRequest="40" Margin="0,5,0,0"/>
-
+        <Entry x:Name="AmountPaidEntry" Placeholder="Enter amount paid" Keyboard="Numeric" WidthRequest="393" HeightRequest="40" Margin="0,0,0,0"/>
+            <Button Text="Calculate Change" Clicked="CalculateChangeButton_Clicked" WidthRequest="200" HeightRequest="40" Margin="-190,0,0,5"/>
+        <Label x:Name="ChangeLabel" Text="Change: " FontAttributes="Bold" Margin="220,-40,0,5"/>
+            <Button Text="Remove Checked Items" Clicked="RemoveCheckedItemsButton_Clicked" WidthRequest="393" HeightRequest="40" Margin="0,0,0,5"/>
+            <Button Text="Print Receipt" Clicked="PrintReceiptButton_Clicked" WidthRequest="190" HeightRequest="40" Margin="200,0,0,0"/>
+            <Button Text="Complete" Clicked="CompleteButton_Clicked" WidthRequest="190" HeightRequest="40" Margin="-200,-40,0,5"/>
+            <Button Text="Back" Clicked="BackButton_Clicked" WidthRequest="393" HeightRequest="40" Margin="0,0,0,0"/>
 
         </StackLayout>
+
     </Grid>
         
 </ContentPage>
