@@ -12,7 +12,7 @@
             <Button x:Name="Button3" Text="Cart" Clicked="ViewCartButton_Clicked" WidthRequest="393" HeightRequest="40" Margin="0,0,0,10"/>
             <Button Text="Kitchen" Clicked="KitchenDisplayButton_Clicked" WidthRequest="393" HeightRequest="40" Margin="0,0,0,10"/> 
             <Button Text="Payment" Clicked="PaymentButton_Clicked" WidthRequest="393" HeightRequest="40" Margin="0,0,0,10"/>
-            <Label Text="MANAGEMENT" HorizontalOptions="Center" FontSize="25" FontAttributes="Bold" Margin="0,10,0,10"/>
+            <Label x:Name="Label1" Text="MANAGEMENT" HorizontalOptions="Center" FontSize="25" FontAttributes="Bold" Margin="0,10,0,10"/>
             <Button x:Name="Button5" Text="Item Management" Clicked="ItemManagementButton_Clicked" WidthRequest="393" HeightRequest="40" Margin="0,0,0,10"/>
             <Button x:Name="Button6" Text="Data History" Clicked="DataHistoryButton_Clicked" WidthRequest="393" HeightRequest="40" Margin="0,0,0,10"/>
             <Button x:Name="Button7" Text="Configure" Clicked="ConfigureButton_Clicked" WidthRequest="393" HeightRequest="40" Margin="0,0,0,10"/>
