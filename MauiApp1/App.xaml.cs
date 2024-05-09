@@ -8,7 +8,7 @@
 
             MainPage = new NavigationPage(new MainPage());
 
-           // MainPage = new CreateAccountPage ();
+           // MainPageC = new CreateAccountPage ();
         }
     }
 }
