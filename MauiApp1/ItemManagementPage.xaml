@@ -3,9 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiApp1.ItemManagementPage">
     <StackLayout>
-        <Button Text="Add Item" Clicked="AddItemButton_Clicked"/>
-        <Button Text="Edit Item" Clicked="EditItemButton_Clicked" />
-        <Button Text="Item Lists" Clicked="ItemListsButton_Clicked" />
-        <Button Text="Back" Clicked="BackButton_Clicked"/>
+        <Label Text="ITEM MANAGEMENT" HorizontalOptions="Center" FontSize="25" FontAttributes="Bold" Margin="0,10,0,50"/>
+        <Button Text="Add Item" Clicked="AddItemButton_Clicked"  Margin="0,0,0,10"/>
+        <Button Text="Edit Item" Clicked="EditItemButton_Clicked"  Margin="0,0,0,10"/>
+        <Button Text="Item Lists" Clicked="ItemListsButton_Clicked"  Margin="0,0,0,10"/>
+        <Button Text="Back" Clicked="BackButton_Clicked" Margin="0,0,0,10"/>
     </StackLayout>
 </ContentPage>
