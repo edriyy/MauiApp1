@@ -9,12 +9,12 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Label Text="Welcome" TextColor="Blue" FontAttributes="Bold" Style="{StaticResource Headline}" SemanticProperties.HeadingLevel="Level5" />
+        <!-- <Label Text="Welcome" TextColor="Blue" FontAttributes="Bold" Style="{StaticResource Headline}" SemanticProperties.HeadingLevel="Level5" /> -->
         <Image Source="admin.jpg" WidthRequest="200" HeightRequest="200" Margin="-150,-50,0,0"/>
         <Image Source="employee.jpg" WidthRequest="200" HeightRequest="200" Margin="150,-50,0,0"/>
         <!-- StackLayout for buttons in the center -->
-            <Button Text="Admin" FontSize="24" BackgroundColor="Blue" TextColor="White" WidthRequest="150" HeightRequest="50" Margin="-155,100,0,0" Clicked="AdminButton_Clicked"/>
-            <Button Text="Employee" FontSize="24" BackgroundColor="Blue" TextColor="White" WidthRequest="150" HeightRequest="50" Margin="155,100,0,0" Clicked="EmployeeButton_Clicked"/>
+            <Button Text="Admin" FontSize="24"  TextColor="White" WidthRequest="150" HeightRequest="50" Margin="-155,100,0,0" Clicked="AdminButton_Clicked"/>
+            <Button Text="Employee" FontSize="24"  TextColor="White" WidthRequest="150" HeightRequest="50" Margin="155,100,0,0" Clicked="EmployeeButton_Clicked"/>
 
             <!-- Frame for loading animation, ensured to be the last element so it is on top -->
         <Frame BackgroundColor="#66000000"

@@ -12,7 +12,7 @@
                                VerticalOptions="Center" />
         </Frame>
 
-        <StackLayout>
+        <StackLayout >
             <Label Text="Enter Table Number:" Margin="10,0,0,0"/>
             <Entry x:Name="TableNumberEntry" Placeholder="Enter table number" Keyboard="Numeric" WidthRequest="200" HeightRequest="40" Margin="0,0,0,0"/>
             <Button Text="Load Order" Clicked="LoadOrder_Clicked" WidthRequest="200" HeightRequest="40" Margin="0,0,0,0"/>
@@ -33,7 +33,7 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Button Text="Calculate Total Price" Clicked="CalculateTotalPriceButton_Clicked"  WidthRequest="393" HeightRequest="40" Margin="0,0,0,5"/>
+            <Button Text="Calculate Checked Item" Clicked="CalculateTotalPriceButton_Clicked"  WidthRequest="383" HeightRequest="40" Margin="0,0,0,5"/>
 
             <Label x:Name="TotalPriceLabel" Text="Total Price: " FontAttributes="Bold" Margin="10,0,0,2"/>
             <Label x:Name="CalculationResultLabel" Text="Current Price: " FontAttributes="Bold" Margin="10,0,0,0"/>
@@ -42,12 +42,12 @@
             <CheckBox x:Name="SelectAllCheckBox"  CheckedChanged="SelectAllCheckBox_CheckedChanged" Margin="0,0,0,0"/>
         </StackLayout>
         <Entry x:Name="AmountPaidEntry" Placeholder="Enter amount paid" Keyboard="Numeric" WidthRequest="393" HeightRequest="40" Margin="0,0,0,0"/>
-            <Button Text="Calculate Change" Clicked="CalculateChangeButton_Clicked" WidthRequest="200" HeightRequest="40" Margin="-190,0,0,5"/>
+            <Button Text="Calculate Change" Clicked="CalculateChangeButton_Clicked" WidthRequest="195" HeightRequest="40" Margin="-190,0,0,5"/>
         <Label x:Name="ChangeLabel" Text="Change: " FontAttributes="Bold" Margin="220,-40,0,5"/>
-            <Button Text="Remove Checked Items" Clicked="RemoveCheckedItemsButton_Clicked" WidthRequest="393" HeightRequest="40" Margin="0,0,0,5"/>
-            <Button Text="Print Receipt" Clicked="PrintReceiptButton_Clicked" WidthRequest="190" HeightRequest="40" Margin="200,0,0,0"/>
-            <Button Text="Complete" Clicked="CompleteButton_Clicked" WidthRequest="190" HeightRequest="40" Margin="-200,-40,0,5"/>
-            <Button Text="Back" Clicked="BackButton_Clicked" WidthRequest="393" HeightRequest="40" Margin="0,0,0,0"/>
+            <Button Text="Remove Checked Items" Clicked="RemoveCheckedItemsButton_Clicked" WidthRequest="385" HeightRequest="40" Margin="0,0,0,5"/>
+            <Button Text="Print Receipt" Clicked="PrintReceiptButton_Clicked" WidthRequest="185" HeightRequest="40" Margin="200,0,0,0"/>
+            <Button Text="Complete" Clicked="CompleteButton_Clicked" WidthRequest="185" HeightRequest="40" Margin="-200,-40,0,5"/>
+            <Button Text="Back" Clicked="BackButton_Clicked" WidthRequest="383" HeightRequest="40" Margin="0,0,0,0"/>
 
         </StackLayout>
 

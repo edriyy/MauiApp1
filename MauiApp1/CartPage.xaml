@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="MauiApp1.CartPage">
-    <StackLayout>
+    <StackLayout Padding="5">
         <Label Text="Enter Table Number:"/>
         <Entry x:Name="TableNumberEntry" Placeholder="Enter table number" Keyboard="Numeric"/>
         <Button Text="Load Order" Clicked="LoadOrder_Clicked"/>

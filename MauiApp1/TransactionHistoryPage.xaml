@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiApp1.TransactionHistoryPage">
-    <StackLayout>
+    <StackLayout Padding="5">
         <!-- Add UI elements here to display receipt data -->
         <ListView x:Name="ReceiptListView">
             <ListView.ItemTemplate>
