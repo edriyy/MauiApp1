@@ -1,3 +1,5 @@
+using System.Globalization;
+
 namespace MauiApp1;
 
 public partial class DataStatisticPage : ContentPage
@@ -24,8 +26,11 @@ public partial class DataStatisticPage : ContentPage
                     var averagePrice = receipts.Average(r => r.Price);
                     var totalQuantity = receipts.Sum(r => r.Quantity);
 
-                    TotalSalesLabel.Text = $"Total Sales: {totalSales:C}";
-                    AveragePriceLabel.Text = $"Average Price: {averagePrice:C}";
+                    // Set the culture to Malaysian Ringgit (RM)
+                    CultureInfo malaysianCulture = new CultureInfo("ms-MY");
+
+                    TotalSalesLabel.Text = $"Total Sales: {totalSales.ToString("C", malaysianCulture)}";
+                    AveragePriceLabel.Text = $"Average Price: {averagePrice.ToString("C", malaysianCulture)}";
                     TotalQuantityLabel.Text = $"Total Quantity: {totalQuantity}";
                     StatisticsLayout.IsVisible = true;
                 }
